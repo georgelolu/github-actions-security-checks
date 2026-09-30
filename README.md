@@ -1,8 +1,21 @@
-# GitHub Actions Security Checks
+# 🔐 GitHub Actions Security Checks
 
-A DevSecOps demonstration project that integrates automated security checks into a GitHub Actions CI/CD pipeline.
+[![Security Checks](https://github.com/georgelolu/github-actions-security-checks/actions/workflows/security-checks.yml/badge.svg)](https://github.com/georgelolu/github-actions-security-checks/actions/workflows/security-checks.yml)
 
-The project demonstrates how application dependencies, source code, secrets, and container images can be continuously scanned for security issues before changes are accepted into the main branch.
+[![Python](https://img.shields.io/badge/Python-3.12+-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.1.3-black?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![Bandit](https://img.shields.io/badge/SAST-Bandit-yellow)](https://bandit.readthedocs.io/)
+[![Gitleaks](https://img.shields.io/badge/Secrets-Gitleaks-red)](https://github.com/gitleaks/gitleaks)
+[![Trivy](https://img.shields.io/badge/Container%20Security-Trivy-1904DA)](https://trivy.dev/)
+[![pip-audit](https://img.shields.io/badge/Dependencies-pip--audit-green)](https://github.com/pypa/pip-audit)
+
+> **A production-style DevSecOps demonstration that integrates automated security controls directly into the CI/CD pipeline.**
+
+This project demonstrates how **dependency vulnerabilities, insecure source-code patterns, exposed secrets, and container vulnerabilities** can be continuously detected and blocked through automated security gates before changes are accepted into the `main` branch.
+
+**Security Stack:** GitHub Actions · pip-audit · Bandit · Gitleaks · Trivy · Docker · Python · Flask
+
 
 ## 🚀 Security Pipeline
 
