@@ -224,6 +224,71 @@ Remove the container:
 docker rm -f security-demo
 ```
 
+## 📸 Security Evidence
+
+The repository includes evidence from the GitHub Actions security pipeline demonstrating dependency scanning, SAST, secret detection, container vulnerability scanning, and vulnerability remediation.
+
+### 1. Overall Security Pipeline
+
+All four automated security checks completed successfully in GitHub Actions.
+
+![Security Pipeline Success](docs/evidence/01-security-pipeline-success.png)
+
+### 2. Dependency Vulnerability Scan
+
+`pip-audit` completed successfully with no known vulnerabilities detected in the project dependencies.
+
+![Dependency Scan Success](docs/evidence/02-dependency-scan-success.png)
+
+### 3. Static Application Security Testing
+
+`Bandit` completed successfully and reported no security findings at the configured severity level.
+
+![Bandit SAST Success](docs/evidence/03-sast-bandit-success.png)
+
+### 4. Secret Detection
+
+`Gitleaks` completed successfully, confirming that no exposed secrets were detected in the repository.
+
+![Gitleaks Secret Scan](docs/evidence/04-secret-scan-success.png)
+
+### 5. Container Vulnerability Scan
+
+`Trivy` successfully scanned the Docker image and the security gate passed after remediation.
+
+![Trivy Container Scan](docs/evidence/05-container-scan-success.png)
+
+### 6. Security Gate Failure Detection
+
+During development, the Trivy security gate detected six HIGH-severity OpenSSL-related vulnerabilities in the Docker image.
+
+![Trivy Failed Scan](docs/evidence/06-trivy-failed-vulnerabilities.png)
+
+### 7. Remediation and Verification
+
+The Dockerfile was updated to refresh the Debian base packages. The image was rebuilt and rescanned, after which the Trivy security gate passed successfully.
+
+![Trivy Remediation Success](docs/evidence/07-trivy-remediation-success.png)
+
+### DevSecOps Validation Flow
+
+```text
+Security Scan
+     │
+     ▼
+Vulnerabilities Detected
+     │
+     ▼
+Dockerfile Remediation
+     │
+     ▼
+Image Rebuilt
+     │
+     ▼
+Trivy Re-scan
+     │
+     ▼
+Security Gate Passed
 ## 🛡️ Container Security
 
 The Docker image is scanned with Trivy using the following security policy:
